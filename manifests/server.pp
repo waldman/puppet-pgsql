@@ -71,7 +71,7 @@ class postgresql::server {
         }    
     }
     
-    define pgconf($listening_ip = $ipaddress_eth0, $max_connections, $shared_buffers = '256MB', $effective_cache_size = '128MB', $log_min_duration_statement = '-1', $work_mem = '1MB', $maintenance_work_mem = '16MB', $shmmax = "280000000"){
+    define pgconf($listening_ip = $ipaddress_eth0, $max_connections = '100', $shared_buffers = '256MB', $effective_cache_size = '128MB', $log_min_duration_statement = '-1', $work_mem = '1MB', $maintenance_work_mem = '16MB', $shmmax = "280000000"){
         case $lsbdistrelease {
             8.04: {
                 $version = '8.3'
