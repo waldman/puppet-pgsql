@@ -49,7 +49,7 @@ To configure the server:
 
 Suported parameters list with default values (when applicable):
 
-    max_connections
+    max_connections = 100
     listening_ip = $ipaddress_eth0
     shared_buffers = '256MB'
     effective_cache_size = '128MB'
@@ -82,9 +82,9 @@ Suported parameters list with default values (when applicable):
 
     postgresql::database::createdb {'Database_name':
         ensure  => present,
-        owner   => 'user_that_owns_the_database, \# (will be created if it doesn't exists)
-        pgpass  => 'md52257151269b83ef0e139c3eec8bbcbcb', \# (It suports the pgsql md5 hashed pass or plain text)
-        usrprop => 'ALTER ROLE user_that_owns_the_database SET search_path=Schema_1, Schema_2;', \#(Small SQL snippet that will be executed after the user creation)
+        owner   => 'user_that_owns_the_database, # will be created if it doesn't exists
+        pgpass  => 'md52257151269b83ef0e139c3eec8bbcbcb', # It suports the pgsql md5 hashed pass or plain text
+        usrprop => 'ALTER ROLE user_that_owns_the_database SET search_path=Schema_1, Schema_2;', # Small SQL snippet that will be executed after the user creation
     }
 
 #### A Regular User:
@@ -92,8 +92,8 @@ Suported parameters list with default values (when applicable):
     postgresql::user::pguser {'Regular_User':
         ensure  => present,
         pguser  => 'Regular_User',
-        pgpass  => 'md52257151269b83ef0e139c3eec8bbcbcb', \# (It suports the pgsql md5 hashed pass or plain text)
-        usrprop => 'ALTER ROLE user_that_owns_the_database SET search_path=Schema_1, Schema_2;', \#(Small SQL snippet that will be executed after the user creation)
+        pgpass  => 'md52257151269b83ef0e139c3eec8bbcbcb', # It suports the pgsql md5 hashed pass or plain text
+        usrprop => 'ALTER ROLE user_that_owns_the_database SET search_path=Schema_1, Schema_2;', # Small SQL snippet that will be executed after the user creation
     }
 
 #### A Super User:
@@ -101,7 +101,7 @@ Suported parameters list with default values (when applicable):
     postgresql::user::superuser {'Super_User':
         ensure  => present,
         pguser  => 'Super_User',
-        pgpass  => 'md52257151269b83ef0e139c3eec8bbcbcb', \# (It suports the pgsql md5 hashed pass or plain text)
+        pgpass  => 'md52257151269b83ef0e139c3eec8bbcbcb', # It suports the pgsql md5 hashed pass or plain text
     }
 
 #### A Role:
