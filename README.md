@@ -34,7 +34,7 @@ To install PostgreSQL include and import the module:
     import 'postgresql'
 	
 
-## To configure the server:
+### To configure the server:
 
 ##### The postgresql.conf file:
 
