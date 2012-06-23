@@ -50,7 +50,7 @@ To install PostgreSQL include and import the module:
 
 Suported parameters list with default values (when applicable):
 
-    max_connections = 100
+    max_connections = '100'
     listening_ip = $ipaddress_eth0
     shared_buffers = '256MB'
     effective_cache_size = '128MB'
