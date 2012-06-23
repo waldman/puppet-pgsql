@@ -4,6 +4,7 @@ puppet-pgsql
 Puppet PostgreSQL Module.
 
 This module is compatible and was tested with Ubuntu 08.04 LTS and 10.04 LTS.
+
 Future LTS versions support planned. Contributions are welcome! :)
 
 
