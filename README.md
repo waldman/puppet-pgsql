@@ -34,9 +34,9 @@ To install PostgreSQL include and import the module:
     import 'postgresql'
 	
 
-To configure the server:
+### To configure the server:
 
-#### The postgresql.conf file:
+##### The postgresql.conf file:
 
 	postgresql::server::pgconf { 'My_Postgres_Server':
 		max_connections				=> '100',
@@ -59,13 +59,13 @@ Suported parameters list with default values (when applicable):
     maintenance_work_mem = '16MB'
     shmmax = "280000000"
 
-#### The pg\_hba.conf file:
+##### The pg\_hba.conf file:
 
     postgresql::server::pg_hba{'Postgres_Allow_Networks':
 		networks	=> ['Network\Host_1_in_CIDR_Notation', 'Network\Host_2_in_CIDR_Notation', '...']
 	}
 
-#### The backup script:
+##### The backup script:
 
     postgresql::server::simple_backup {'Backup_Script':
         bkp_user     => 'username_of_the_user_that_fetchs_the_backuped_files',
@@ -79,7 +79,7 @@ Suported parameters list with default values (when applicable):
     bkp_user= ''
     bkp_user_key = ''
 
-#### A Database:
+##### A Database:
 
     postgresql::database::createdb {'Database_name':
         ensure  => present,
@@ -88,7 +88,7 @@ Suported parameters list with default values (when applicable):
         usrprop => 'ALTER ROLE user_that_owns_the_database SET search_path=Schema_1, Schema_2;', # Small SQL snippet that will be executed after the user creation
     }
 
-#### A Regular User:
+##### A Regular User:
 
     postgresql::user::pguser {'Regular_User':
         ensure  => present,
@@ -97,7 +97,7 @@ Suported parameters list with default values (when applicable):
         usrprop => 'ALTER ROLE user_that_owns_the_database SET search_path=Schema_1, Schema_2;', # Small SQL snippet that will be executed after the user creation
     }
 
-#### A Super User:
+##### A Super User:
  
     postgresql::user::superuser {'Super_User':
         ensure  => present,
@@ -105,7 +105,7 @@ Suported parameters list with default values (when applicable):
         pgpass  => 'md52257151269b83ef0e139c3eec8bbcbcb', # It suports the pgsql md5 hashed pass or plain text
     }
 
-#### A Role:
+##### A Role:
  
     postgresql::user::pgrole {'database_role':
         ensure  => present,
@@ -115,7 +115,7 @@ Suported parameters list with default values (when applicable):
 
 Some Remarks
 ------------
-#### Backup Script:
+##### Backup Script:
 The backup script will run daily and do a dump of all databases and global variables 
 on the server and put this dumps on the folder /var/dbbackup/last\_bkps.
 
@@ -128,7 +128,7 @@ group and the postgres user. You need to set this user on another box and
 prepare a script to do the fetching.
 
 
-#### DB Owner creation:
+##### DB Owner creation:
 During Database creation if the database owner user doesn't exists it will be
 created.
 
