@@ -18,6 +18,7 @@ Module Installation
 ------------
 
 Clone this repository inside your puppet modules folder renaming it to postgresql:
+
     git clone git://github.com/waldman/puppet-pgsql.git postgresql
 
 
@@ -25,6 +26,7 @@ Usage
 -----
 
 To install PostgreSQL include and import the module:
+
 	include postgresql::server
     include postgresql::client
     include postgresql::user
@@ -34,6 +36,7 @@ To install PostgreSQL include and import the module:
 To configure the server:
 
 - The postgresql.conf file:
+
 	postgresql::server::pgconf { 'My_Postgres_Server':
 		max_connections				=> '100',
 		shared_buffers				=> '256MB',
@@ -45,6 +48,7 @@ To configure the server:
 	}
 
 Suported parameters list with default values (when applicable):
+
     max_connections
     listening_ip = $ipaddress_eth0
     shared_buffers = '256MB'
@@ -55,23 +59,27 @@ Suported parameters list with default values (when applicable):
     shmmax = "280000000"
 
 - The pg\_hba.conf file:
+
     postgresql::server::pg_hba{'Postgres_Allow_Networks':
 		networks	=> ['Network\Host_1_in_CIDR_Notation', 'Network\Host_2_in_CIDR_Notation', '...']
 	}
 
 - The backup script:
+
     postgresql::server::simple_backup {'Backup_Script':
         bkp_user     => 'username_of_the_user_that_fetchs_the_backuped_files',
         bkp_user_key => '<ssh-key from the user_that_fetchs_the_backuped_files>',
     }
 
 Suported parameters list with default values (when applicable):
+
     cron_hour = '7'
     cron_minute = '00'
     bkp_user= ''
     bkp_user_key = ''
 
 - A Database:
+
     postgresql::database::createdb {'Database_name':
         ensure  => present,
         owner   => 'user_that_owns_the_database, \# (will be created if it doesn't exists)
@@ -80,6 +88,7 @@ Suported parameters list with default values (when applicable):
     }
 
 - A Regular User:
+
     postgresql::user::pguser {'Regular_User':
         ensure  => present,
         pguser  => 'Regular_User',
@@ -88,6 +97,7 @@ Suported parameters list with default values (when applicable):
     }
 
 - A Super User:
+ 
     postgresql::user::superuser {'Super_User':
         ensure  => present,
         pguser  => 'Super_User',
@@ -95,6 +105,7 @@ Suported parameters list with default values (when applicable):
     }
 
 - A Role:
+ 
     postgresql::user::pgrole {'database_role':
         ensure  => present,
         pgrole  => 'database_role',
