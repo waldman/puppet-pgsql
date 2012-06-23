@@ -1,0 +1,14 @@
+### Set Connection Kind of Auth, Default entries
+
+# Database administrative login by UNIX sockets
+local	all	postgres						ident sameuser
+
+# TYPE	DATABASE	USER	CIDR-ADDRESS	METHOD
+local	all			all						ident sameuser
+host	all			all		127.0.0.1/32	md5
+host	all			all		::1/128			md5
+
+
+### Set Connection Kind of Auth, Added Entries
+<% networks.each do |ns| %>host    all         all         <%= ns %>         md5
+<% end -%>
