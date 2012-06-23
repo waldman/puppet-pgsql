@@ -147,5 +147,5 @@ class postgresql::server {
                 require => [ User["${bkp_user}"], File["/home/${bkp_user}/.ssh"] ],
             }
         }
-	}
+    }
 }
