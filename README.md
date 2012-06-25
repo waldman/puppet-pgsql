@@ -119,7 +119,7 @@ Some Remarks
 The backup script will run daily and do a dump of all databases and global variables 
 on the server and put this dumps on the folder /var/dbbackup/last\_bkps.
 
-It will also keep seven days old dumps on the folder
+It will also keep seven days of dumps on the folder
 /var/dbbackup/week\_archive.
 
 The fetch operation (fetch backup files from this server) is not covered on this
