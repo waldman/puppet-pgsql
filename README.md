@@ -143,4 +143,4 @@ I added remarks about this on the header of the pertinent files and the original
 found to be needed.
 
 I would like to thanks both of them for their work and for release it so I could
-learn, modify and use it! :)
+learn, modify and use! :)
